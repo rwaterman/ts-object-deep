@@ -10,12 +10,12 @@
   "devDependencies": {
     "@types/jest": "24.0.x",
     "jest": "24.9.x",
-    "prettier": "1.18.x",
-    "ts-jest": "24.0.x",
-    "ts-node": "8.3.x",
-    "tslint": "5.19.x",
+    "prettier": "1.19.x",
+    "ts-jest": "24.2.x",
+    "ts-node": "8.5.x",
+    "tslint": "5.20.x",
     "tslint-config-prettier": "1.18.x",
-    "typescript": "3.5.x"
+    "typescript": "3.2.x"
   },
   "scripts": {
     "build": "tsc",
