@@ -1,7 +1,7 @@
-import { renameKeys } from '../rename_keys';
+import { renameKeys } from './rename_keys';
 
 describe("renameKeys", () => {
-  let obj: object;
+  let obj: any;
 
   beforeEach(() => {
     obj = { x: { y: { z: 123 } } };

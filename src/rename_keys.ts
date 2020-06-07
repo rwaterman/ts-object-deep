@@ -1,8 +1,9 @@
-import { isPlainObject } from './common';
+import { isPlainObject } from './is_plain_object';
 
 export type DeepRenameKeyFn = (key: string) => string | false;
 
-export function renameKeys(obj: any, renameKeyFn: DeepRenameKeyFn) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function renameKeys<T>(obj: T, renameKeyFn: DeepRenameKeyFn): T {
   if (!isPlainObject(obj)) {
     return obj;
   }

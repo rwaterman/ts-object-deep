@@ -8,24 +8,27 @@
     "lib/**/*"
   ],
   "devDependencies": {
-    "@types/jest": "24.0.x",
-    "jest": "24.9.x",
-    "prettier": "1.19.x",
-    "ts-jest": "24.2.x",
-    "ts-node": "8.5.x",
-    "tslint": "5.20.x",
-    "tslint-config-prettier": "1.18.x",
-    "typescript": "3.2.x"
+    "@types/jest": "25.2.x",
+    "@typescript-eslint/eslint-plugin": "3.1.x",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-config-airbnb-typescript": "8.0.x",
+    "eslint-plugin-import": "2.20.x",
+    "eslint-plugin-jest": "23.13.x",
+    "jest": "26.0.x",
+    "ts-jest": "26.1.x",
+    "ts-node": "8.10.x",
+    "typescript": "3.9.x"
   },
   "scripts": {
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "format": "prettier --write \"./src/**/*.ts\"",
+    "lint": "eslint \"./src/**/*.ts\" --fix",
     "postversion": "git push && git push --tags",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config ./jestconfig.json",
     "version": "npm run format && git add -A src"
   },
   "repository": {
@@ -38,5 +41,8 @@
     "Deep Rename"
   ],
   "author": "Rick Waterman",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/parser": "3.1.x"
+  }
 }

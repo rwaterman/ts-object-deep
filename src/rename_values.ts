@@ -1,4 +1,4 @@
 // TODO
-export function renameValues(obj: any) {
-  return true;
+export function renameValues<T>(obj: T): T {
+  return obj;
 }
