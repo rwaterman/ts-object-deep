@@ -1,6 +1,7 @@
 import { isPlainObject } from './is_plain_object';
+import { SkipRename } from './constants';
 
-export type DeepRenameKeyFn = (key: string) => string | false;
+export type DeepRenameKeyFn = (key: string) => string | symbol;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function renameKeys<T>(obj: T, renameKeyFn: DeepRenameKeyFn): T {
@@ -9,7 +10,10 @@ export function renameKeys<T>(obj: T, renameKeyFn: DeepRenameKeyFn): T {
   }
 
   return Object.entries(obj).reduce((acc: any, [key, value]: any) => {
-    acc[renameKeyFn(key) || key] = renameKeys(value, renameKeyFn);
+    const renameKeyResult = renameKeyFn(key);
+
+    const keyToUse = renameKeyResult === SkipRename ? key : renameKeyResult;
+    acc[keyToUse] = renameKeys(value, renameKeyFn);
     return acc;
   }, {});
 }

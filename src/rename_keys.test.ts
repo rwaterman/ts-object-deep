@@ -1,4 +1,5 @@
 import { renameKeys } from './rename_keys';
+import { SkipRename } from './constants';
 
 describe("renameKeys", () => {
   let obj: any;
@@ -10,7 +11,7 @@ describe("renameKeys", () => {
   describe("renames an object's keys deeply", () => {
     it('one level deep', () => {
       function renameKeyFn(key: string) {
-        return key && key.startsWith('x') ? 'x_changed' : false;
+        return key && key.startsWith('x') ? 'x_changed' : SkipRename;
       }
 
       const changed = renameKeys(obj, renameKeyFn);
@@ -19,7 +20,7 @@ describe("renameKeys", () => {
 
     it('two levels deep', () => {
       function renameKeyFn(key: string) {
-        return key && key.startsWith('y') ? 'y_changed' : false;
+        return key && key.startsWith('y') ? 'y_changed' : SkipRename;
       }
 
       const changed = renameKeys(obj, renameKeyFn);
@@ -28,7 +29,7 @@ describe("renameKeys", () => {
 
     it('three levels deep', () => {
       function renameKeyFn(key: string) {
-        return key && key.startsWith('z') ? 'z_changed' : false;
+        return key && key.startsWith('z') ? 'z_changed' : SkipRename;
       }
 
       const changed = renameKeys(obj, renameKeyFn);
@@ -39,7 +40,7 @@ describe("renameKeys", () => {
   describe('does not rename an object keys', () => {
     it('if the callback returns false', () => {
       function renameKeyFn(key: string) {
-        return key && key.startsWith('a') ? 'a_changed' : false;
+        return key && key.startsWith('a') ? 'a_changed' : SkipRename;
       }
 
       const changed = renameKeys(obj, renameKeyFn);
