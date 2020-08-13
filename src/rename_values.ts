@@ -11,7 +11,7 @@ export function renameValues<T, U>(obj: T, renameValueFn: DeepRenameValueFn): U 
   }
 
   return Object.entries(obj).reduce((acc: any, [key, value]: any) => {
-    acc[key] = renameValues<T, U>(value, renameValueFn);
+    acc[key] = renameValues(value, renameValueFn);
     return acc;
   }, {});
 }

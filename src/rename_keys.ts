@@ -3,9 +3,9 @@ import { SkipRename } from './constants';
 
 export type DeepRenameKeyFn = (key: string) => string | symbol;
 
-export function renameKeys<T>(obj: T, renameKeyFn: DeepRenameKeyFn): T {
+export function renameKeys<T, U>(obj: T, renameKeyFn: DeepRenameKeyFn): U {
   if (!isPlainObject(obj)) {
-    return obj;
+    return obj as any;
   }
 
   return Object.entries(obj).reduce((acc: any, [key, value]: any) => {

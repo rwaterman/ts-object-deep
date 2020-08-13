@@ -1,7 +1,7 @@
 import { renameKeys } from './rename_keys';
 import { SkipRename } from './constants';
 
-describe('renameKeys', () => {
+describe(renameKeys.name, () => {
   let obj: any;
 
   beforeEach(() => {
