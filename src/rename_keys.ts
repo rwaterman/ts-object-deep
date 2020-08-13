@@ -3,7 +3,6 @@ import { SkipRename } from './constants';
 
 export type DeepRenameKeyFn = (key: string) => string | symbol;
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function renameKeys<T>(obj: T, renameKeyFn: DeepRenameKeyFn): T {
   if (!isPlainObject(obj)) {
     return obj;
