@@ -1,7 +1,7 @@
 import { renameKeys } from './rename_keys';
 import { SkipRename } from './constants';
 
-describe("renameKeys", () => {
+describe('renameKeys', () => {
   let obj: any;
 
   beforeEach(() => {
@@ -46,5 +46,5 @@ describe("renameKeys", () => {
       const changed = renameKeys(obj, renameKeyFn);
       expect(changed).toEqual({ x: { y: { z: 123 } } });
     });
-  })
+  });
 });
