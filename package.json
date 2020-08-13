@@ -22,18 +22,16 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "format": "prettier --write \"./src/**/*.ts\"",
     "lint": "eslint \"./src/**/*.ts\" --fix",
     "postversion": "git push && git push --tags",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
-    "test": "jest --config ./jestconfig.json",
-    "version": "npm run format && git add -A src"
+    "test": "jest --config ./jestconfig.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rwaterman/ts-deep-object-rename.git"
+    "url": "git+https://github.com/rwaterman/deep-object-rename.git"
   },
   "keywords": [
     "TypeScript",
